@@ -1,4 +1,4 @@
-package com.restbooker.api;
+package com.restbooker.RestClient;
 
 import com.restbooker.model.BookingClass;
 import io.restassured.http.ContentType;

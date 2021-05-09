@@ -1,4 +1,4 @@
-package com.restbooker.api;
+package com.restbooker.RestClient;
 
 public class BaseApi {
     protected static final String BASE_ENDPOINT = "https://restful-booker.herokuapp.com/";

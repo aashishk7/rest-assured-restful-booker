@@ -1,6 +1,6 @@
 package com.restbooker.tests;
-import com.restbooker.api.BookingApi;
-import com.restbooker.api.PingApi;
+import com.restbooker.RestClient.BookingApi;
+import com.restbooker.RestClient.PingApi;
 import com.restbooker.utils.ReusableSpecifications;
 import io.restassured.response.Response;
 import org.testng.annotations.BeforeTest;

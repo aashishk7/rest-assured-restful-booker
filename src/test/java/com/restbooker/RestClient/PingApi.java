@@ -1,4 +1,4 @@
-package com.restbooker.api;
+package com.restbooker.RestClient;
 
 import io.restassured.response.Response;
 

@@ -1,8 +1,8 @@
 package com.restbooker.utils;
 
 import com.jayway.jsonpath.JsonPath;
-import com.restbooker.api.AuthApi;
-import com.restbooker.api.BookingApi;
+import com.restbooker.RestClient.AuthApi;
+import com.restbooker.RestClient.BookingApi;
 import com.restbooker.model.BookingClass;
 import com.restbooker.model.BookingDatesClass;
 import com.restbooker.model.Auth;
