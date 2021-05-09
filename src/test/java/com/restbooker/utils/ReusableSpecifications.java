@@ -1,5 +1,6 @@
 package com.restbooker.utils;
 
+import com.github.javafaker.Faker;
 import com.jayway.jsonpath.JsonPath;
 import com.restbooker.RestClient.AuthApi;
 import com.restbooker.RestClient.BookingApi;
@@ -15,6 +16,8 @@ import static com.restbooker.utils.Constants.DEFAULT_USER_NAME;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class ReusableSpecifications {
+
+    Faker fake = new Faker();
 
     public String fetchToken() {
 
@@ -50,7 +53,6 @@ public class ReusableSpecifications {
 
     Response bookingResponse= BookingApi.createBooking(bookingpayload);
     Integer bookingId = JsonPath.read(bookingResponse.asString(), "$.bookingid");
-        System.out.println(bookingId);
         return bookingId ;
     }
 
@@ -61,10 +63,10 @@ public class ReusableSpecifications {
                 .build();
 
         BookingClass bookingpayload = new BookingClass.Builder()
-                .setfirstname("Jim")
-                .setlastname("Brown")
-                .settotalprice(200)
-                .setdepositpaid(true)
+                .setfirstname(fake.name().firstName())
+                .setlastname(fake.name().lastName())
+                .settotalprice(fake.number().numberBetween(100,1000))
+                .setdepositpaid(fake.equals("true"))
                 .setbookingdates(dates)
                 .setadditionalneeds("Breakfast")
                 .build();
