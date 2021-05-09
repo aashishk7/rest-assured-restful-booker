@@ -7,6 +7,7 @@ import com.restbooker.RestClient.BookingApi;
 import com.restbooker.model.BookingClass;
 import com.restbooker.model.BookingDatesClass;
 import com.restbooker.model.Auth;
+import io.qameta.allure.Step;
 import io.restassured.response.Response;
 
 import java.util.Date;
@@ -19,6 +20,7 @@ public class ReusableSpecifications {
 
     Faker fake = new Faker();
 
+    @Step("Generating token from Authorization Endpoint")
     public String fetchToken() {
 
         Auth auth = new Auth.Builder()
@@ -33,29 +35,15 @@ public class ReusableSpecifications {
         return token ;
     }
 
-    public Integer getBookingId(){
-
-    BookingDatesClass dates = new BookingDatesClass.Builder()
-            .setCheckin(new Date())
-            .setCheckout(new Date())
-            .build();
-
-    BookingClass bookingpayload = new BookingClass.Builder()
-            .setfirstname("Jim")
-            .setlastname("Brown")
-            .settotalprice(200)
-            .setdepositpaid(true)
-            .setbookingdates(dates)
-            .setadditionalneeds("Breakfast")
-            .build();
-
-        System.out.println(("BOOKING FETCHED"));
-
-    Response bookingResponse= BookingApi.createBooking(bookingpayload);
+    @Step("Generating a new Booking with some Random data")
+    public Integer getBookingId()
+    {
+    Response bookingResponse= BookingApi.createBooking(generateCreatePaylod());
     Integer bookingId = JsonPath.read(bookingResponse.asString(), "$.bookingid");
         return bookingId ;
     }
 
+    @Step("Generating Random Data required as body in Create and Update request")
     public BookingClass generateCreatePaylod(){
         BookingDatesClass dates = new BookingDatesClass.Builder()
                 .setCheckin(new Date())
