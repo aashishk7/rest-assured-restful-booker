@@ -1,0 +1,23 @@
+plugins {
+    id 'java'
+}
+
+group 'org.example'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation group: 'io.rest-assured', name: 'rest-assured', version: '3.3.0'
+    testImplementation group: 'org.testng', name: 'testng', version: '6.11'
+    testImplementation group: 'org.assertj', name: 'assertj-core', version: '3.8.0'
+    testImplementation group: 'com.fasterxml', name: 'jackson-module-json-org', version: '0.9.1'
+    testImplementation 'com.fasterxml.jackson.core:jackson-databind:2.8.6'
+    testImplementation 'com.jayway.jsonpath:json-path:2.4.0'
+}
+
+test {
+    useTestNG()
+}
