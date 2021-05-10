@@ -4,6 +4,7 @@ import com.restbooker.RestClient.PingApi;
 import com.restbooker.utils.ReusableSpecifications;
 import io.qameta.allure.Description;
 
+import io.qameta.allure.junit4.DisplayName;
 import io.restassured.response.Response;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
